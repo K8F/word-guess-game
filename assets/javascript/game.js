@@ -35,7 +35,6 @@ for (i = 0; i < chosenWord.length; i++) {
 
 
 console.log(dashes);
-//Capture letters player presses on keyboard.
 
 //Check to see if player presses a valid letter.
 
@@ -51,7 +50,15 @@ document.getElementById("guesses").innerHTML=guesses
 
 
 
+//Capture letters player presses on keyboard.
 
+
+document.onkeyup = function(event){
+
+    var keyInput = event.key
+    console.log(keyInput);
+
+}
 
 
 
