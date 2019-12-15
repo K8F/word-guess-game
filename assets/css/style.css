@@ -1,3 +1,10 @@
 h1{
     text-align: center;
+    font-family: 'Parisienne', cursive;
+    color: red;
+}
+
+.main-photo{
+    width:188px;
+    height: 125px;
 }
