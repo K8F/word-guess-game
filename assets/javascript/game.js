@@ -4,12 +4,14 @@ var words = [
     "chestnuts",
     "santa",
     "snowflake",
-    "sleigh"
-];
+    "sleigh"];
+    
+var wins=0;
 
 var guesses= 12;
 
-var wins=0;
+//array to store guessed letters
+var lettersGuessed = [];
 
 //diplay wins
 
@@ -33,7 +35,6 @@ for (i = 0; i < chosenWord.length; i++) {
 //display dashes
   document.getElementById("current-word").innerHTML=dashes;
 
-
 console.log(dashes);
 
 //Check to see if player presses a valid letter.
@@ -45,6 +46,7 @@ console.log(dashes);
 
 //If player guesses invalid letter, remove number of tries by 1 (12 tries total).
 document.getElementById("guesses").innerHTML=guesses
+console.log(guesses);
 
 //When player wins, add to win score.
 
@@ -52,12 +54,14 @@ document.getElementById("guesses").innerHTML=guesses
 
 //Capture letters player presses on keyboard.
 
+document.onkeyup = function keyPress(event){
+    var keyInput = event.key;
+    var lettersGuessed=keyInput.split(" ");
 
-document.onkeyup = function(event){
+document.getElementById("current-word").innerHTML=lettersGuessed;
+console.log(lettersGuessed);
 
-    var keyInput = event.key
     console.log(keyInput);
-
 }
 
 
