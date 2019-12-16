@@ -32,7 +32,7 @@ console.log(chosenWord); //works
 
 //Number of dashes same length as random word. 
 var dashes = " ";
-for (i = 0; i < chosenWord.length; i++) {
+for (i = 0; i <= chosenWord.length; i++) {
     if (chosenWord.charAt(i) == " ") {
       dashes += " ";
     } else {
@@ -51,10 +51,10 @@ function checkLetter(){
 document.onkeyup = function(event){
     keyInput = event.key.toLowerCase();
     var found = false;
-    for (i=0; i < chosenWord.length; i++){
+    for (i=0; i <= chosenWord.length; i++){
         if (keyInput === chosenWord[i]) {
             correctGuess[i] = keyInput;
-            document.getElementById("current-word").innerHTML=keyInput;
+            document.getElementById("current-word").innerHTML=keyInput =correctGuess.join(" ");
             found=true;
 console.log(found);
         }
