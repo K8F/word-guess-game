@@ -6,14 +6,14 @@ var words = [
     "snowflake",
     "sleigh"];
 
+    console.log(words); //works
+
 //user guess
 var keyInput;    
-    
+
 var wins=0;
 
 var guesses= 12;
-
-var guess;
 
 //array to store guessed letters
 var correctGuess = [];
@@ -22,11 +22,12 @@ var incorrectGuess = [];
 //diplay wins
 
 document.getElementById("wins").innerHTML= wins;
-
+console.log(wins); //works
 
 //Pick Random Word from list (math.random)
 var chosenWord = words[Math.floor(Math.random() * words.length)];
-console.log(chosenWord)
+
+console.log(chosenWord); //works
 
 
 //Number of dashes same length as random word. 
@@ -39,28 +40,39 @@ for (i = 0; i < chosenWord.length; i++) {
     }
     //display dashes
     document.getElementById("current-word").innerHTML=dashes;
-    console.log(dashes);
+    console.log(dashes); //works
 
 }
 
 
 //Capture letters player presses on keyboard.
 
-document.onkeyup = function keyPress(event){
-    keyInput = event.key;
-    lettersGuessed=keyInput.split(" ");
+function checkLetter(){
+document.onkeyup = function(event){
+    keyInput = event.key.toLowerCase();
     var found = false;
     for (i=0; i < chosenWord.length; i++){
-        if (guess === chosenWord[i]) {
-            correctGuess[i] = guess;
-            document.getElementById("current-word").innerHTML=lettersGuessed;
+        if (keyInput === chosenWord[i]) {
+            correctGuess[i] = keyInput;
+            document.getElementById("current-word").innerHTML=keyInput;
             found=true;
+console.log(found);
         }
+
     }
     if (found) return;
 
-console.log(found);
+    console.log(found);
+
+
+    if(incorrectGuess.indexOf(keyInput) <0) {
+        incorrectGuess.push(keyInput);
+        document.getElementById("letters-guessed").innerHTML = incorrectGuess.join(" ");
+
 }
+}
+}
+checkLetter();
 
 
 
@@ -72,16 +84,8 @@ console.log(found);
 
 
 //If player guesses invalid letter, remove number of tries by 1 (12 tries total).
-document.getElementById("guesses").innerHTML=guesses
-console.log(guesses);
+
 
 //When player wins, add to win score.
-
-
-
-
-
-
-
 
 
