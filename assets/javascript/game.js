@@ -37,22 +37,13 @@ console.log(chosenWord); //works
 //Number of dashes same length as random word. 
 //broken:when letter is true, all dashes disappear
 function hideWord() {
-var dashes = " ";
-for (i = 0; i <= chosenWord.length; i++) {
-    if (chosenWord.charAt(i) == " ") {
-      dashes += " ";
-    } 
-    else {
-      dashes += "__ ";
+    for (i = 0; i < chosenWord.length; i++) {
+      correctGuess[i] = "__";
     }
-    //display dashes
-    document.getElementById("current-word").innerHTML=dashes;
-    console.log(dashes);
-}
-
-}
-hideWord();
-
+  
+    document.getElementById("current-word").innerHTML = correctGuess.join(" ");
+    console.log(correctGuess);
+  }
 
 //Capture letters player presses on keyboard.
 //Check to see if player presses a valid letter.
@@ -90,6 +81,7 @@ console.log(found);
 
 }
 }
+hideWord();
 checkLetter();
 
 //coded out because it's broken function win(){
